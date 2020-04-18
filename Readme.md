@@ -44,6 +44,8 @@ Quick start
 0. Clone this repository  
     ```bash
     $ git clone https://github.com/Ivan-Feofanov/ws-audio-api.git
+    $ cd ws-audio-api
+    $ npm i
     $ cd ws-audio-api/example
     ```
 

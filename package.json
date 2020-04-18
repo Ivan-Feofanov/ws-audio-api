@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Ivan-Feofanov/ws-audio-api/issues"
   },
-  "homepage": "https://github.com/Ivan-Feofanov/ws-audio-api"
+  "homepage": "https://github.com/Ivan-Feofanov/ws-audio-api",
+  "dependencies": {
+    "uglify-js": "^3.9.1"
+  }
 }
