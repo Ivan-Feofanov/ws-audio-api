@@ -26,7 +26,7 @@
 
 	var WSAudioAPI = global.WSAudioAPI = {
 		Player: function(config, socket) {
-			this.config = {};
+			this.config = config || {};
 			this.config.codec = this.config.codec || defaultConfig.codec;
 			this.config.server = this.config.server || defaultConfig.server;
 			this.sampler = new Resampler(this.config.codec.sampleRate, audioContext.sampleRate, 1, this.config.codec.bufferSize);
@@ -40,7 +40,7 @@
 				navigator.mozGetUserMedia ||
 				navigator.msGetUserMedia);
 
-			this.config = {};
+			this.config = config || {};
 			this.config.codec = this.config.codec || defaultConfig.codec;
 			this.config.server = this.config.server || defaultConfig.server;
 			this.sampler = new Resampler(audioContext.sampleRate, this.config.codec.sampleRate, 1, this.config.codec.bufferSize);
@@ -72,7 +72,7 @@
 		var _this = this;
 
 		if (!this.parentSocket) {
-			this.socket = new WebSocket('wss://' + this.config.server.host + ':' + this.config.server.port);
+			this.socket = new WebSocket('wss://' + this.config.server.host + ':' + this.config.server.port, { rejectUnauthorized: false });
 		} else {
 			this.socket = this.parentSocket;
 		}
