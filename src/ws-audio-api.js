@@ -72,7 +72,7 @@
 		var _this = this;
 
 		if (!this.parentSocket) {
-			this.socket = new WebSocket('wss://' + this.config.server.host + ':' + this.config.server.port, { rejectUnauthorized: false });
+			this.socket = new WebSocket('wss://' + this.config.server.host + ':' + this.config.server.port);
 		} else {
 			this.socket = this.parentSocket;
 		}
