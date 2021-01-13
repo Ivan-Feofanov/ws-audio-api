@@ -13,8 +13,8 @@ var httpsServer = https.createServer({
 
 var wss = new WebSocketServer({ server: httpsServer });
 
-wss.on('connection', function (ws) {
-    var connectionId = ws.upgradeReq.headers['sec-websocket-key'];
+wss.on('connection', function (ws, req) {
+    var connectionId = req.headers['sec-websocket-key'];
     var isMaster = false;
 
     if (!masterId) {
