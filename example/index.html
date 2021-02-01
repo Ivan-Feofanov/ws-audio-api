@@ -14,9 +14,9 @@
         <input id="volume" type="range" min ="0.0" max="1.0" step ="0.01" oninput="setVol(this.value)" onchange="setVol(this.value)" style="-webkit-appearance: slider-vertical">
         <input type="text" id="volumeIndicator">
     </body>
-    <script src="scripts/ws-audio-api.min.js"></script>
+    <script src="ws-audio-api.min.js"></script>
     <script>
-        var player = new WSAudioAPI.Player();
+        var player = new WSAudioAPI.Player(); // Note that here i use default server location. Don't forget set correct address
         var streamer = new WSAudioAPI.Streamer();
         var mute = document.querySelector('.mute');
         var volume = document.querySelector('#volume');

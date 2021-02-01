@@ -25,15 +25,10 @@
 
 	var WSAudioAPI = global.WSAudioAPI = {
 		Player: function(config, socket) {
-			this.config = {};
-			this.config.codec = config.codec || defaultConfig.codec;
-			this.config.codec.sampleRate = config.codec.sampleRate || defaultConfig.codec.sampleRate;
-			this.config.codec.channels = config.codec.channels || defaultConfig.codec.channels;
-			this.config.codec.bufferSize = config.codec.bufferSize || defaultConfig.codec.bufferSize;
-
-			this.config.server = config.server || defaultConfig.server;
-			this.sampler = new Resampler(this.config.codec.sampleRate, 44100, 1, this.config.codec.bufferSize);
-
+			this.config = config || {};
+			this.config.codec = this.config.codec || defaultConfig.codec;
+			this.config.server = this.config.server || defaultConfig.server;
+			this.sampler = new Resampler(this.config.codec.sampleRate, audioContext.sampleRate, 1, this.config.codec.bufferSize);
 			this.parentSocket = socket;
 
 			this.decoder = new OpusDecoder(this.config.codec.sampleRate, this.config.codec.channels);
@@ -45,18 +40,10 @@
 				navigator.mozGetUserMedia ||
 				navigator.msGetUserMedia);
 
-			this.config = {};
-			this.config.codec = config.codec || defaultConfig.codec;
-			this.config.codec.sampleRate = config.codec.sampleRate || defaultConfig.codec.sampleRate;
-			this.config.codec.channels = config.codec.channels || defaultConfig.codec.channels;
-			this.config.codec.app = config.codec.app || defaultConfig.codec.app;
-			this.config.codec.frameDuration = config.codec.frameDuration || defaultConfig.codec.frameDuration;
-			this.config.codec.bufferSize = config.codec.bufferSize || defaultConfig.codec.bufferSize;
-
-			this.config.server = config.server || defaultConfig.server;
-			this.config.server.host = config.server.host || defaultConfig.server.host;
-
-			this.sampler = new Resampler(44100, this.config.codec.sampleRate, 1, this.config.codec.bufferSize);
+			this.config = config || {};
+			this.config.codec = this.config.codec || defaultConfig.codec;
+			this.config.server = this.config.server || defaultConfig.server;
+			this.sampler = new Resampler(audioContext.sampleRate, this.config.codec.sampleRate, 1, this.config.codec.bufferSize);
 			this.parentSocket = socket;
 			this.encoder = new OpusEncoder(this.config.codec.sampleRate, this.config.codec.channels, this.config.codec.app, this.config.codec.frameDuration);
 			var _this = this;

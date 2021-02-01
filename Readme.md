@@ -1,6 +1,6 @@
 WebSocket Audio API
 ====================
-####Library to broadcast the sound from the microphone through a WebSocket
+#### Library to broadcast the sound from the microphone through a WebSocket
 
 This library can work in two ways:  
 
@@ -65,10 +65,8 @@ Quick start
     ```js
     <script>
         var streamer = new WSAudioAPI.Streamer({
-            server: {
-                host: window.location.hostname, //websockets server addres. In this example - localhost
-                port: 5000 //websockets server port
-        });
+            server: 'wss://localhost:5000' // dont't forget about scheme 
+   });
     </script>
     
     <button onclick="streamer.start()">Start stream</button>
@@ -80,9 +78,7 @@ Quick start
     ```js
     <script>
         var player = new WSAudioAPI.Player({
-            server: {
-                host: window.location.hostname, //websockets server addres. In this example - localhost
-                port: 5000 //websockets server port
+            server: 'wss://localhost:5000' // dont't forget about scheme
         });
     </script>
     <button onclick="player.start()">Play stream</button>
@@ -104,10 +100,7 @@ var defaultConfig = {
         frameDuration: 20,
         bufferSize: 4096
     },
-    server: {
-        host: window.location.hostname,
-        port: 5000
-    }
+    server: 'ws://' + window.location.hostname + ':5000'
 }
 ```
 

@@ -1,6 +1,6 @@
 {
   "name": "ws-audio-api",
-  "version": "0.1.5",
+  "version": "0.2",
   "description": "WebSocket Audio API: library to broadcast the sound from the microphone through a WebSocket",
   "main": "dist/ws-audio-api.min.js",
   "scripts": {
