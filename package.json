@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/Ivan-Feofanov/ws-audio-api",
   "dependencies": {
-    "uglify-js": "^3.9.1"
+    "uglify-js": "^3.15.4"
   }
 }
